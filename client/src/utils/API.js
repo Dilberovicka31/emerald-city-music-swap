@@ -48,5 +48,9 @@ class API {
         return this.axios.delete("/api/records/" + id);
     }
 
+    updateOneRecord(id) {
+        return this.axios.put("/api/records/" + id)
+    }
+
 }
 export default new API();

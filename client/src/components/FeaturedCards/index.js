@@ -1,4 +1,5 @@
 import React from "react";
+import { useIsAuthenticated, useLogout } from "../../utils/auth";
 import {
   MDBRow,
   MDBCol,
@@ -12,36 +13,28 @@ import {
 } from "mdbreact";
 import "./scrollbar.css";
 
-
-
 // {/* we want to be able to have multiple posts two on a row? */}
 const FeaturedCards = (props) => {
-  
-  
-  
-
+const isAuth = useIsAuthenticated();
 
   const scrollContainerStyle = { width: "200px", maxHeight: "82px" };
   const imagestyle = { width: "100%", height: "40vh", objectFit: "cover" };
   return (
-
     <MDBCardBody className="carbody text-center pt-0">
       <h2 className="font-weight-bolder text-center">Recent posts</h2>
       <MDBContainer>
-
         <MDBRow className="text-md-left d-flex justify-content-center">
           {props.records.length > 0
             ? props.records.map((record) => {
                 return (
                   <MDBCol
-                  key={record._id}
+                    key={record._id}
                     sm="5"
                     lg="3"
                     md="6"
                     className="mt-5 mr-3 shadow-box-example z-depth-3"
                   >
-                    {/* <MDBIcon pull="right" far icon="bookmark" size="2x"/> */}
-                    <MDBCard className="mt-2">
+                    <MDBCard className="mt-2 ">
                       <MDBCardImage
                         className="img-fluid mx-auto mb-md-0 mb-4 rounded"
                         src={"/images/" + record.image}
@@ -51,6 +44,7 @@ const FeaturedCards = (props) => {
                         waves
                       />
                     </MDBCard>
+
                     <MDBCard className="mt-2 mb-2">
                       <MDBCardBody className="">
                         <MDBCardTitle>{record.recordArtist}</MDBCardTitle>
@@ -77,24 +71,29 @@ const FeaturedCards = (props) => {
                           <span>Posted: {new Date().toLocaleDateString()}</span>
                         </h6>
 
-
-
-
-                        <MDBBtn onClick={() => props.handleDelete(record._id)}
-
+                        {isAuth && (  <MDBBtn
+                          onClick={() => props.handleDelete(record._id)}
                           color="elegant"
                           className="align-center mt-3"
                           style={{ borderRadius: "2rem" }}
                           size="sm"
                         >
                           Delete
-                        </MDBBtn>
+                        </MDBBtn>)}
+
+                      {isAuth && (  <MDBBtn
+                        href="/updatepost"
+                          onClick={() => props.handleUpdate(record._id)}
+                          color="elegant"
+                          className="align-center mt-3"
+                          style={{ borderRadius: "2rem" }}
+                          size="sm"
+                        >
+                          Edit
+                        </MDBBtn>)}
                       </MDBCardBody>
                     </MDBCard>
                   </MDBCol>
-
-
-                  
                 );
               })
             : ""}

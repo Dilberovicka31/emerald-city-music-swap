@@ -10,7 +10,7 @@ router.route("/:recordGenre")
     .get(recordController.findbyGenre);
 
 router.route("/:id")
-    .put(recordController.findbyGenre)
+    .put(recordController.update)
     .delete(recordController.remove);
 
 module.exports = router;

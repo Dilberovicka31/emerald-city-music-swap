@@ -1,36 +1,68 @@
+import React, { useState } from "react";
 import { MDBBtn, MDBCol, MDBContainer, MDBRow, MDBInput } from "mdbreact";
-// import React, {useState} from "react";
-// import API from "../../utils/API"
-
-
-function CreatePost() {
+function UpdatePost(props) {
+  
+const [records,setRecords] = useState([])
+  const handleChange=(e) =>{
+    setRecords({...records, [e.target.name] : e.target.value})
+}
+  
 
   return (
     <MDBContainer className="mt-4 mb-5">
       <MDBRow className="d-flex justify-content-center">
-
-        <MDBCol md="9" className=" shadow-box-example rounded z-depth-1-half md-0 mb-3 ">
-          <form className="custom-file" action="/api/recordImage" method="post" enctype="multipart/form-data">
+        <MDBCol
+          md="9"
+          className=" shadow-box-example rounded z-depth-1-half md-0 mb-3 "
+        >
+          <form
+            className="custom-file"
+            action="/api/recordImage"
+            method="post"
+            enctype="multipart/form-data"
+          >
             <p className="h3 text-center mb-3 black-text">Post A Record</p>
             <MDBRow>
               <MDBCol md="6">
                 <div className="form-group">
-                  <input type="text" className="form-control" placeholder="Artist Name" name="recordArtist" />
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Artist Name"
+                    name="recordArtist"
+                    onChange={handleChange}
+                  />
                 </div>
               </MDBCol>
               <MDBCol md="6">
                 <div className="form-group">
-                  <input type="text" className="form-control" placeholder="Album Name" name="recordAlbumName" />
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Album Name"
+                    name="recordAlbumName"
+                    onChange={handleChange}
+                  />
                 </div>
               </MDBCol>
               <MDBCol md="6">
                 <div className="form-group">
-                  <input type="text" className="form-control" placeholder="Your Email" name="recordPosterContact" />
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Your Email"
+                    name="recordPosterContact"
+                    onChange={handleChange}
+                  />
                 </div>
               </MDBCol>
               <MDBCol md="4">
                 <div>
-                  <select className="browser-default custom-select" name="recordGenre" >
+                  <select
+                    className="browser-default custom-select"
+                    name="recordGenre"
+                    onChange={handleChange}
+                  >
                     <option>Genre</option>
                     <option value="Alternative">Alternative</option>
                     <option value="Blues">Blues</option>
@@ -55,8 +87,12 @@ function CreatePost() {
               </MDBCol>
               <MDBCol md="3">
                 <div>
-                  <select className="browser-default custom-select" name="recordCondition"  >
-                <option>Condition</option>
+                  <select
+                    className="browser-default custom-select"
+                    name="recordCondition"
+                    onChange={handleChange}
+                  >
+                    <option>Condition</option>
                     <option value="Mint">Mint</option>
                     <option value="Near Mint">Near Mint</option>
                     <option value="Excellent">Excellent</option>
@@ -69,8 +105,13 @@ function CreatePost() {
               </MDBCol>
             </MDBRow>
 
-
-            <MDBInput type="textarea" label="Other record details" name="recordComments" className="rounded" />
+            <MDBInput
+              type="textarea"
+              label="Other record details"
+              name="recordComments"
+              className="rounded"
+              onChange={handleChange}
+            />
 
             <div className="input-group">
               <div className="input-group-prepend">
@@ -88,22 +129,22 @@ function CreatePost() {
                 label="Click to Upload Image"
               />
               {/* <input type="submit"/> */}
-
-
             </div>
             <div className="text-center text-md-center">
-              <MDBBtn type="submit" color="elegant" style={{ borderRadius: "2rem" }}   >
-                Create Post
-            </MDBBtn>
+              <MDBBtn
+              onClick={()=>props.handleUpdate()}
+                type="submit"
+                color="elegant"
+                style={{ borderRadius: "2rem" }}
+              >
+                Update Post
+              </MDBBtn>
             </div>
-
           </form>
           <div className="mb-5"></div>
         </MDBCol>
       </MDBRow>
-
     </MDBContainer>
-
   );
-};
-export default CreatePost;
+}
+export default UpdatePost;

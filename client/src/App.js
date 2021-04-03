@@ -10,7 +10,9 @@ import PrivateRoute from "./components/PrivateRoute";
 import LandingPage from "./pages/LandingPage";
 import BrowseForm from "./components/BrowseForm";
 import CreatePost from "./components/CreatePost";
+import UpdatePost from "./components/UpdatePost"
 import {Route } from "react-router-dom";
+import FeaturedCards from "./components/FeaturedCards";
 
 
 
@@ -25,9 +27,11 @@ function App() {
       <Route exact path="/" component={Home}/>
       <PrivateRoute exact path="/browse" component={BrowseForm} redirectTo = "/login"/>
       <PrivateRoute exact path="/createpost" component={CreatePost} redirectTo = "/login"/>
+      <PrivateRoute exact path="/updatepost/:id" component={UpdatePost} redirect to ="/userPage"/>
+      <PrivateRoute exact path="/myPosts" component={LandingPage} redirect to ="/userPage"/>
       <GuestRoute exact path ="/signup" component={Signup} redirectTo = "/userPage"/>
       <GuestRoute exact path ="/login" component={Login} redirectTo = "/userPage"/>
-      <PrivateRoute exact path ="/userPage" component={LandingPage} redirectTo="/login"/>
+      <GuestRoute exact path ="/userPage" component={LandingPage} />
       <Footer />
     </div>
 

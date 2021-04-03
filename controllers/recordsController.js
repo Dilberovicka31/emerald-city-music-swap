@@ -37,10 +37,28 @@ module.exports = {
   },
   update: function (req, res) {
     db.Record
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then(dbModel => res.json(dbModel))
+      .findById(req.params.id)  
+      .then(dbModel => {
+        
+        dbModel.recordAlbumName=req.body.recordAlbumName;
+        dbModel.recordArtist=req.body.recordArtist;
+        dbModel.recordGenre=req.body.recordGenre;
+        dbModel.recordCondition=req.body.recordCondition;
+        dbModel.recordComments=req.body.recordComments;
+
+        dbModel.save()
+        .then(()=>
+        // res.redirect("/createpost")
+        res.json("Record Updated"))
+       
+      })
+        // res.json(dbModel))
+      // res.redirect("/userPage");
       .catch(err => res.status(422).json(err));
+      
   },
+
+  
   remove: function (req, res) {
     db.Record
       .findByIdAndDelete({ _id: req.params.id })

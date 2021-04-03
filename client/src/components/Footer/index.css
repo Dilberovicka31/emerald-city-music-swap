@@ -1,6 +1,21 @@
-
-.footer{
-    position:absolute;
-   bottom:0;
-   width:100%;
+/* 
+footer.page-footer .footer-copyright {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: rgb(231, 228, 228);
+   z-index:9999999;} */
+   body,
+html {
+  min-height: 100%;
 }
+
+@media (max-width: 576px) {
+    .icons {
+       
+     font-size: 5px
+    } 
+    #name{
+      font-size: 8px
+    }
+ }

@@ -40,7 +40,7 @@ function Signup() {
             <p>
               To keep connected with us please login with your personal info
             </p>
-            <MDBBtn color="white" style={{ borderRadius: "2rem" }}>
+            <MDBBtn color="white" style={{ borderRadius: "2rem" }} onSubmit={handleSubmit}>
               Login
             </MDBBtn>
           </div>
