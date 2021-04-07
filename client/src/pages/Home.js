@@ -10,7 +10,7 @@ function Home() {
     <div>
       <Carousel />
 
-      {/* <FeaturedCards /> */}
+      
 
       <h1 className="text-center mt-5">The Vinyl Comeback Continues</h1>
 

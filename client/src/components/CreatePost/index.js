@@ -1,9 +1,11 @@
 import { MDBBtn, MDBCol, MDBContainer, MDBRow, MDBInput } from "mdbreact";
-// import React, {useState} from "react";
+import DatePicker from "react-datepicker";
+import React, {useState} from "react";
 // import API from "../../utils/API"
 
 
 function CreatePost() {
+  const [startDate, setStartDate] = useState(new Date());
 
   return (
     <MDBContainer className="mt-4 mb-5">
@@ -66,6 +68,9 @@ function CreatePost() {
                     <option value="Poor/Fair">Poor/Fair</option>
                   </select>
                 </div>
+              </MDBCol>
+              <MDBCol md="3">
+<DatePicker selected={startDate} onChange={date=> setStartDate(date)}></DatePicker>
               </MDBCol>
             </MDBRow>
 

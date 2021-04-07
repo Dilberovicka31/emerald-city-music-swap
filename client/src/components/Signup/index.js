@@ -35,12 +35,12 @@ function Signup() {
     <MDBContainer className="shadow-box-example rounded z-depth-1-half mt-5 mb-5">
       <MDBRow>
         <MDBCol className="welcome-back-card gradient-custom" md="6 p-5">
-          <div className="sign-in text-center text-white pt-5 m-5" id="sign-in">
+          <div className="sign-in text-center  pt-5 m-5" id="sign-in">
             <h1>Welcome Back!</h1>
-            <p>
+            <p style={{color:"black"}}>
               To keep connected with us please login with your personal info
             </p>
-            <MDBBtn color="white" style={{ borderRadius: "2rem" }} onSubmit={handleSubmit}>
+            <MDBBtn color="black" style={{ borderRadius: "2rem" }} href="/login">
               Login
             </MDBBtn>
           </div>

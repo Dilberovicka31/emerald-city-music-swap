@@ -12,7 +12,6 @@ import BrowseForm from "./components/BrowseForm";
 import CreatePost from "./components/CreatePost";
 import UpdatePost from "./components/UpdatePost"
 import {Route } from "react-router-dom";
-import FeaturedCards from "./components/FeaturedCards";
 
 
 
@@ -25,9 +24,9 @@ function App() {
     <div>
       <NavTabs/>
       <Route exact path="/" component={Home}/>
-      <PrivateRoute exact path="/browse" component={BrowseForm} redirectTo = "/login"/>
+      <GuestRoute exact path="/browse" component={BrowseForm} redirect to ="/userPage" />
       <PrivateRoute exact path="/createpost" component={CreatePost} redirectTo = "/login"/>
-      <PrivateRoute exact path="/updatepost/:id" component={UpdatePost} redirect to ="/userPage"/>
+      <PrivateRoute exact path="/updatepost" component={UpdatePost} redirect to ="/userPage"/>
       <PrivateRoute exact path="/myPosts" component={LandingPage} redirect to ="/userPage"/>
       <GuestRoute exact path ="/signup" component={Signup} redirectTo = "/userPage"/>
       <GuestRoute exact path ="/login" component={Login} redirectTo = "/userPage"/>

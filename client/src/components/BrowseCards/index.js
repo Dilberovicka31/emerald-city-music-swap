@@ -3,7 +3,6 @@ import {
   MDBRow,
   MDBCol,
   MDBIcon,
-  MDBBtn,
   MDBCardImage,
   MDBCard,
   MDBCardBody,
@@ -16,7 +15,7 @@ import "./scrollbar.css";
 // {/* we want to be able to have multiple posts two on a row? */}
 const FeaturedCards = (props) => {
   const scrollContainerStyle = { width: "200px", maxHeight: "82px" };
-  const imagestyle = { width: "100%", height: "40vh", objectFit: "cover" };
+  const imagestyle = { width: "100%", height: "60vh", objectFit: "cover" };
   return (
     <MDBContainer>
       <MDBRow className="text-md-left d-flex justify-content-center">
@@ -26,7 +25,7 @@ const FeaturedCards = (props) => {
 
                 <MDBCol
                   sm="5"
-                  lg="3"
+                  lg="5"
                   md="6"
                   className="mt-5 mr-2 ml-2 shadow-box-example z-depth-3"
                 >
@@ -67,14 +66,7 @@ const FeaturedCards = (props) => {
                         <span>Posted: {new Date().toLocaleDateString()}</span>
                       </h6>
 
-                      <MDBBtn onClick={() => props.handleDelete(record._id)}
-                        color="elegant"
-                        className="align-center mt-3"
-                        style={{ borderRadius: "2rem" }}
-                        size="sm"
-                      >
-                        Delete
-                      </MDBBtn>
+                     
                     </MDBCardBody>
                   </MDBCard>
                 </MDBCol>

@@ -15,15 +15,9 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
-  date: {
-    type: Date,
-    default: Date.now
-  },
+ 
 
-  userRecords: [{
-    type: Schema.Types.ObjectId,
-    ref: "Record"
-  }],
+  records: [{type:Schema.Types.ObjectId, ref: "Record"}]
 
 });
 

@@ -2,6 +2,7 @@ import React from "react";
 import {  Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { useIsAuthenticated, useLogout } from "../../utils/auth";
 import mainlogo from "../../images/mainlogo.png";
+import { MDBIcon } from "mdbreact";
 
 function NavTabs() {
   const isAuth = useIsAuthenticated();
@@ -23,14 +24,14 @@ function NavTabs() {
         <Nav >
          
          
-        {isAuth && (  <Nav.Link href="/" style={{ fontSize: "20px", color: "black" }} onClick={logout}>
+        {isAuth && (  <Nav.Link href="/" className="animated fadeInLeft" style={{ fontSize: "20px", color: "black" }} onClick={logout}>
               Logout{" "}
             </Nav.Link> )}
             {!isAuth && (
-              <Nav.Link href="/signup" style={{ fontSize: "20px", color: "black" }}>Signup</Nav.Link>
+              <Nav.Link href="/signup" className="animated fadeInLeft" style={{ fontSize: "20px", color: "black" }}>Signup</Nav.Link>
             )}
             {!isAuth && (
-              <Nav.Link href="/login" style={{ fontSize: "20px", color: "black" }}>Login</Nav.Link>
+              <Nav.Link href="/login" className="animated fadeInLeft" style={{ fontSize: "20px", color: "black" }}>Login</Nav.Link>
             )}
          
          {!isAuth && (  <Nav.Link
@@ -39,7 +40,7 @@ function NavTabs() {
             href="/userPage"
             style={{ fontSize: "20px", color: "black" }}
           >
-           Posted
+           Posted Items
           </Nav.Link>)}
 
           {isAuth && ( <Nav.Link
@@ -51,15 +52,17 @@ function NavTabs() {
        My Posts
           </Nav.Link>)}
 
-          {isAuth && ( <Nav.Link
+          {!isAuth && ( <Nav.Link
             className="mr-auto animated fadeInLeft"
             id="name"
             href="/browse"
             style={{ fontSize: "20px", color: "black" }}
           >
-            Browse
+            Browse Records
           </Nav.Link>)}
-          {isAuth && ( <NavDropdown
+          {isAuth && ( 
+          <NavDropdown
+          
             title="Add"
             id="basic-nav-dropdown"
             className="animated fadeInLeft"

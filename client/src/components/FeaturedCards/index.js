@@ -1,5 +1,5 @@
 import React from "react";
-import { useIsAuthenticated, useLogout } from "../../utils/auth";
+import { useIsAuthenticated } from "../../utils/auth";
 import {
   MDBRow,
   MDBCol,
@@ -17,8 +17,11 @@ import "./scrollbar.css";
 const FeaturedCards = (props) => {
 const isAuth = useIsAuthenticated();
 
+
+
+
   const scrollContainerStyle = { width: "200px", maxHeight: "82px" };
-  const imagestyle = { width: "100%", height: "40vh", objectFit: "cover" };
+  const imagestyle = { width: "100%", height: "60vh", objectFit: "cover" };
   return (
     <MDBCardBody className="carbody text-center pt-0">
       <h2 className="font-weight-bolder text-center">Recent posts</h2>
@@ -30,9 +33,9 @@ const isAuth = useIsAuthenticated();
                   <MDBCol
                     key={record._id}
                     sm="5"
-                    lg="3"
+                    lg="5"
                     md="6"
-                    className="mt-5 mr-3 shadow-box-example z-depth-3"
+                    className="mt-5 mr-3 shadow-box-example z-depth-3 animated fadeInUp"
                   >
                     <MDBCard className="mt-2 ">
                       <MDBCardImage
@@ -67,8 +70,8 @@ const isAuth = useIsAuthenticated();
                         >
                           <div className="mt-2">{record.recordComments}</div>
                         </div>
-                        <h6 className="mt-3">
-                          <span>Posted: {new Date().toLocaleDateString()}</span>
+                        <h6 className="">
+                          Posted: {record.recordDatePosted}
                         </h6>
 
                         {isAuth && (  <MDBBtn

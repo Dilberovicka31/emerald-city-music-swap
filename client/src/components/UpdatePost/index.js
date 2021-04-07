@@ -17,11 +17,11 @@ const [records,setRecords] = useState([])
         >
           <form
             className="custom-file"
-            action="/api/recordImage"
-            method="post"
+            action="/api/updatepost"
+            method="put"
             enctype="multipart/form-data"
           >
-            <p className="h3 text-center mb-3 black-text">Post A Record</p>
+            <p className="h3 text-center mb-3 black-text">Update A Record</p>
             <MDBRow>
               <MDBCol md="6">
                 <div className="form-group">
